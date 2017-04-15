@@ -1,4 +1,5 @@
 #final code for product identifier
+import sys
 import shlex
 import re
 import mmap
@@ -56,9 +57,8 @@ def edits2(word):
 
 
 productName = " "
-temp = shlex.split("GARNIOR  ShampAo nupre dke Dry, Damaged Hair 25.4 FL OZ 050n FRUCTiS TRIPLE NUTRITION")
-print temp
-print type(temp) is list
+temp = shlex.split(sys.argv[1])
+
 for item in temp:
     item = item.lower()
     if(str(correction(item))) not in productName:

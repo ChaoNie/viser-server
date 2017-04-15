@@ -1,1 +1,3 @@
-print 'This is from python script: Hello world'
+import sys
+
+print sys.argv
