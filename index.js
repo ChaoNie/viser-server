@@ -19,5 +19,26 @@ app.get('/test', function(req, res) {
     });
 });
 
-console.log("App started listening on 3000.......");
+app.post('/testPost', function(req, res) {
+    var rawString = [];
+    req.on('data', chunk => {
+        body.push(chunk);
+    }).on('end', function() {
+        body = Buffer.concat(body).toString();
+    });
+
+    var python = require('child_process').spawn('python', ['test.py', body]);
+    var output = "";
+    python.stdout.on('data', function(data) { output += data; });
+    python.on('close', function(code) {
+        if (code != 0) {
+            console.log("Refused one...");
+            return res.status(500).send(output);
+        }
+        console.log("Got one...");
+        return res.status(200).send(output);
+    });
+});
+
+console.log("App started listening on 8080.......");
 app.listen(8080);
