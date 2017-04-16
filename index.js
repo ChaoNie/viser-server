@@ -24,7 +24,7 @@ app.post('/testPost', function(req, res) {
     console.log(req.body);
     var forAlgorithm = req.body.rawString;
 
-    var python = require('child_process').spawn('python', ['test.py', forAlgorithm]);
+    var python = require('child_process').spawn('python', ['algorithm.py', forAlgorithm]);
     var output = "";
     python.stdout.on('data', function(data) { output += data; });
     python.on('close', function(code) {
