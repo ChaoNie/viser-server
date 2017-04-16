@@ -22,9 +22,9 @@ app.get('/test', function(req, res) {
 app.post('/testPost', function(req, res) {
     console.log("Post here......");
     console.log(req.body);
-    var rawString = "";
+    var forAlgorithm = req.body.rawString;
 
-    var python = require('child_process').spawn('python', ['test.py', rawString]);
+    var python = require('child_process').spawn('python', ['test.py', forAlgorithm]);
     var output = "";
     python.stdout.on('data', function(data) { output += data; });
     python.on('close', function(code) {
