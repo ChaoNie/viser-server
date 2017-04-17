@@ -64,22 +64,24 @@ for item in temp:
     if(str(correction(item))) not in productName:
         productName += "  "+ str(correction(item))
 if(len(productName)):
-    print productName
+    
     finalBrand = shlex.split(productName)
     with open('BrandName.txt', 'r') as searchfile:
         for line in searchfile:
             for brand in  finalBrand:
                 if brand in line:
-                    #print brand
+                    
                     postBrand = brand
-                    print "Brand Name " + postBrand
+                    print "Brand " + postBrand
+                    
     #finalBrand = shlex.split(productName)
     with open('ProductType.txt', 'r') as typefile:
         for listtype in typefile:
             for productType in  finalBrand:
                 if productType in listtype:
                     postType = productType
-                    print "Product Type " + postType
+                    print "Type " + postType
+                    
     tagline = " "
     with open('TagLine.txt', 'r') as tagfile:
         for tag in tagfile:
@@ -87,4 +89,4 @@ if(len(productName)):
                 if tagType in tag:
                     tagline = tagline + " " + tagType
         
-        print "Tag Type " + tagline
+        print "Tag " + tagline
