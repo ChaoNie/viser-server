@@ -72,7 +72,7 @@ if(len(productName)):
                 if brand in line:
                     
                     postBrand = brand
-                    print "Brand " + postBrand
+                    print postBrand
                     
     #finalBrand = shlex.split(productName)
     with open('ProductType.txt', 'r') as typefile:
@@ -80,7 +80,7 @@ if(len(productName)):
             for productType in  finalBrand:
                 if productType in listtype:
                     postType = productType
-                    print "Type " + postType
+                    print postType
                     
     tagline = " "
     with open('TagLine.txt', 'r') as tagfile:
@@ -89,4 +89,4 @@ if(len(productName)):
                 if tagType in tag:
                     tagline = tagline + " " + tagType
         
-        print "Tag " + tagline
+        print tagline
